@@ -1,21 +1,77 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {View, Text, StyleSheet, TouchableOpacity} from "react-native"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import SomeText from './components/SomeText'
+
+export default class App extends React.Component
+{
+  state = {
+
+    text: "Logged Out",
+    ex: "as"
+
+  };
+
+
+  render() {
+    return (
+      <View style={styles.classname} >
+
+      <TouchableOpacity onPress={
+        () => {
+          
+            this.setState({
+
+              text: "Logged In"
+
+            });
+        }
+      }>
+
+        <SomeText vayuui = "Log In"/>
+
+      </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={
+        () => {
+          this.setState({
+
+              text:"Logged Out"
+          });
+        }
+      }>
+
+      <SomeText vayuui = "Logout"/>
+
+      </TouchableOpacity>
+
+      <Text style ={{ color: "white", fontSize: 20, marginTop: 10}}>
+
+          {this.state.text}
+
+      </Text>
+      
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  
+  classname : {
+    flex : 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "green"
+   },
+   textstyle : {
+     fontSize : 20,
+     color : "white",
+     backgroundColor: "orange",
+     paddingHorizontal : 10,
+     paddingVertical : 15,
+     marginTop: 5
+
+   }
+})
